@@ -1,6 +1,9 @@
-##Sample Apps Laravel 8 - Vue 3 CRUD with laravel-passport auth
 
-###Installation 
+
+
+## Sample Apps Laravel 8 - Vue 3 CRUD with laravel-passport auth
+
+### Installation 
 - Open terminal
 - Create database simple_laravel_vue
 - Configure .env file
@@ -15,4 +18,4 @@
 - npm install => `npm install`
 - npm run  => `npm run dev`
   
-open `http://localhost:3000/` on your browser
+### open `http://localhost:3000/` on your browser
