@@ -133,6 +133,7 @@ export default {
           if (response.status === 422) {
             this.validationErrorMessage = response.data.data;
             this.errorMessage = response.data.message;
+            window.scroll(0,0)
           }
         });
         return
@@ -145,13 +146,16 @@ export default {
               this.errorMessage = result.data.message;
               return;
             }
-            this.flash('Data Updated', 'success');
             this.routeToIndex()
           }).catch((error) => {
         let response = error.response;
+        console.log("==== param ====")
+        console.log(response)
+
         if (response.status === 422) {
           this.validationErrorMessage = response.data.data;
           this.errorMessage = response.data.message;
+          window.scroll(0,0)
         }
       })
 
