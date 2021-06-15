@@ -19,3 +19,9 @@
 - npm run  => `npm run dev`
   
 ### open `http://localhost:3000/` on your browser
+
+#### default user
+```
+    email    : admin@gmail.com
+    password : bismillah
+```
