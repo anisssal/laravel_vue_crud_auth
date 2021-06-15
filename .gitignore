@@ -1,0 +1,5 @@
+gitemployee-backend-laravel/.idea
+employee-backend-laravel/.env
+employee-backend-laravel/vendor
+employee-frontend-vue/node_modules
+employee-frontend-vue/.idea
