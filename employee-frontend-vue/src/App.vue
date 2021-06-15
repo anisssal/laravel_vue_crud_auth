@@ -32,6 +32,7 @@
 
 <script>
 import auth from "./auth";
+import router from "./router";
 
 export default {
   data() {
@@ -72,7 +73,8 @@ export default {
       this.auth.authenticated = false;
       this.auth.profile = null;
       localStorage.setItem('id_token', null);
-      this.$router.push('home')
+      this.$router.push({name : 'login'})
+
     }
 
   },
@@ -81,6 +83,7 @@ export default {
       await auth.check(this)
       console.log("=======")
       console.log(this.auth.profile)
+
     })
   }
 

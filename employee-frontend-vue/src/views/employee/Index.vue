@@ -25,7 +25,10 @@
               </tr>
               </thead>
               <tbody>
-              <tr v-for="(employee , index) in employees" :key="index">
+              <tr v-if="employees.length==0">
+                <td colspan="7">No data</td>
+              </tr>
+              <tr v-if="employees.length>0" v-for="(employee , index) in employees" :key="index">
                 <td>{{ employee.first_name + ' ' + employee.last_name }}</td>
                 <td>{{ employee.email }}</td>
                 <td>{{ employee.phone_number }}</td>
@@ -73,19 +76,35 @@ export default {
       }
       return  moment(end_date ).format('DD-MMM-YYYY');
     },
-    onDelete(id , index){
+    async onDelete(id , index){
+      let result = await this.showDeleteConfirmation();
+      console.log("tes");
+      console.log(result);
+      if(!result.isConfirmed){
+        return;
+      }
       this.axios.delete(`api/employee/${id}`)
           .then((result) => {
             if (result.data.success) {
+              this.$swal('Success', 'Success deleting data.' ,'success');
               this.employees.splice(index, 1);
             }else{
-
+              this.$swal('Failed' , result.data.message , 'error')
             }
           }).catch((error) => {
         console.log(error);
       })
-
-
+    },
+    async showDeleteConfirmation(){
+      return await this.$swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon : 'error',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#087cec',
+        confirmButtonText: 'Delete'
+      });
     },
     async getEmployees(){
       this.axios.get('api/employees')

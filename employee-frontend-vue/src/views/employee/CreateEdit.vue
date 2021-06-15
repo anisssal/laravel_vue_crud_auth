@@ -126,7 +126,7 @@ export default {
                 this.errorMessage = result.data.message;
                 return;
               }
-              // this.flash('Data Updated', 'success');
+              this.$swal('Success', 'Success saving data.' ,'success');
               this.routeToIndex()
             }).catch((error) => {
           let response = error.response;
@@ -138,14 +138,15 @@ export default {
         });
         return
       }
+
       const id = this.$route.params.id;
       this.axios.put(`api/employee/${id}`, this.employee)
           .then((result) => {
-
             if (!result.data.success) {
               this.errorMessage = result.data.message;
               return;
             }
+            this.$swal('Success', 'Success updating data.' ,'success');
             this.routeToIndex()
           }).catch((error) => {
         let response = error.response;
