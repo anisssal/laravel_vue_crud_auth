@@ -21,7 +21,7 @@ const routes = [
         component: ()=>import("../views/Login.vue"),
         // props : {auth : auth}
     },
-    {   path: '/home',
+    {   path: '/',
         name: 'home',
             component: ()=>import("../views/Home.vue"),
         // props : {auth : auth}

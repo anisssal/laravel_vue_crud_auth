@@ -26,7 +26,7 @@
               </thead>
               <tbody>
               <tr v-if="employees.length==0">
-                <td colspan="7">No data</td>
+                <td colspan="7" class="text-center">No data</td>
               </tr>
               <tr v-if="employees.length>0" v-for="(employee , index) in employees" :key="index">
                 <td>{{ employee.first_name + ' ' + employee.last_name }}</td>
